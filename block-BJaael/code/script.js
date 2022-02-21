@@ -11,13 +11,21 @@ function generateColors() {
 
 let ul = document.querySelector(".container");
 
+
+for (let i = 0; i < 500; i++) {
+    let li = document.createElement("li");
+    li.innerText = Math.floor(Math.random() * 500);
+    ul.append(li);
+}
+
+
+
 let allLi = document.querySelectorAll("li");
 allLi = Array.from(allLi);
 
 
 
-
 allLi.forEach(function(element) {
-    ul.addEventListener("mousemove", function() { element.innerText = Math.floor(Math.random() * 153) });
+    ul.addEventListener("mousemove", function() { element.innerText = Math.floor(Math.random() * 500) });
     ul.addEventListener("mousemove", function() { element.style.background = generateColors(); });
-})
+});
