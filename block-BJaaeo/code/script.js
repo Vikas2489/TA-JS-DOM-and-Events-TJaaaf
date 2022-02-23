@@ -1,40 +1,28 @@
-// all function
-function add(num1, num2) {
-    return num1 + num2;
-}
-
-function subtract(num1, num2) {
-    return num1 - num2;
-}
-
-function multiply(num1, num2) {
-    return num1 * num2;
-}
-
-function division(num1, num2) {
-    return num1 / num2;
-}
-
 // container-of-operations
 
-let containerOfOperations = document.querySelector(".container-of-operations");
-let h2 = document.querySelector("h2");
+let section = document.body.querySelector("section");
+let h2 = document.body.querySelector(".h2");
+let allButton = document.body.querySelectorAll(".vv");
+let clear = document.body.querySelector(".CCC");
+let equal = document.querySelector(".isEqual");
 
-containerOfOperations.addEventListener("click", function(event) {
-    let text = event.target;
-    h2.innerText = text.innerText;
-});
-
-// container-of-numbers
-
-let containerOfNumbers = document.querySelector(".container-of-numbers");
-let clear = document.querySelector(".CCC");
-
-
-containerOfNumbers.addEventListener("click", function numbers(event) {
-    let text = event.target;
-    h2.innerText = text.innerText;
-    if (text === clear) {
-        h2.innerText = Number("");
+function handler(event) {
+    if (event.target.classList.contains("isEqual")) {
+        h2.innerText = eval(h2.innerText);
+        return h2.innerText;
     }
-});
+    if (h2.innerText == 0) {
+        h2.innerText = event.target.innerText;
+    } else {
+        h2.innerText += event.target.innerText;
+    }
+}
+
+clear.addEventListener("click", function() {
+    h2.innerText = Number("")
+})
+
+
+allButton.forEach((element) => {
+    element.addEventListener("click", handler)
+})
