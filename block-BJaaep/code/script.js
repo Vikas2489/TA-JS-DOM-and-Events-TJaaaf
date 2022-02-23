@@ -11,18 +11,24 @@ boxOne = Array.from(boxOne);
 boxOne.forEach(function(box, index) {
     box.addEventListener("click", function(event) {
         event.target.innerText = index + 1;
-        // event.target.inner.visibility = "hidden"
+
+        setTimeout(() => {
+            event.target.innerText = "";
+        }, 5000)
     })
 })
 
 
 // With Event delegation
 
-let boxTwo = allWrapper[1].querySelectorAll(".box");
-boxTwo = Array.from(boxTwo);
 
-allWrapper[1].addEventListener("click", boxTwo.forEach(function(box, index) {
-    box.addEventListener("click", function(event) {
-        event.target.innerText = index + 1;
-    })
-}))
+allWrapper[1].addEventListener("click", function(event) {
+    console.dir(event.target);
+    let text = event.target.dataset.textt;
+    event.target.innerText = text;
+
+    setTimeout(() => {
+        event.target.innerText = "";
+    }, 5000)
+
+});
