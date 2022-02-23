@@ -21,12 +21,16 @@ boxOne.forEach(function(box, index) {
 
 // With Event delegation
 
+function useShift(e) {
+    console.log(e.localName);
+    if (e.shiftKey === true && e.target.localName === "li") {
+        let text = e.target.dataset.textt;
+        e.target.innerText = text;
+    }
+}
 
 allWrapper[1].addEventListener("click", function(event) {
-    console.dir(event.target);
-    let text = event.target.dataset.textt;
-    event.target.innerText = text;
-
+    useShift(event);
     setTimeout(() => {
         event.target.innerText = "";
     }, 5000)
