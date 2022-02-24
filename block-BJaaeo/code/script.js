@@ -7,7 +7,7 @@ let clear = document.body.querySelector(".CCC");
 let equal = document.querySelector(".isEqual");
 
 function handler(event) {
-    if (event.target.classList.contains("isEqual")) {
+    if (event.target === equal) {
         h2.innerText = eval(h2.innerText);
         return h2.innerText;
     }
@@ -19,7 +19,7 @@ function handler(event) {
 }
 
 clear.addEventListener("click", function() {
-    h2.innerText = Number("")
+    h2.innerText = Number("");
 })
 
 
