@@ -1,11 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/ac3d1d3a66.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap" rel="stylesheet">
     <title>Rock Paper and Scissors</title>
-  </head>
-  <body>
-    <script src="./script.js"></script>
-  </body>
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1>Rock Paper Scissors Lizard Spock</h1>
+        </header>
+        <section class="your-section">
+            <h2>You
+                <span id="player-score"> - 0 </span>
+                <span id="player-move"> </span>
+            </h2>
+            <div class="container-of-player-icons">
+                <i class="fa fa-hand-rock-o" id="rock" aria-hidden="true" data-set="Rock"></i>
+                <i class="fa fa-hand-paper-o" id="paper" aria-hidden="true" data-set="Paper"></i>
+                <i class="fa fa-hand-scissors-o" id="scissors" aria-hidden="true" data-set="Scissors"></i>
+                <i class="far fa-hand-lizard" id="lizard" data-set="Lizard"></i>
+                <i class="far fa-hand-spock" id="spock" data-set="Spock"></i>
+            </div>
+        </section>
+        <section class="computer-section">
+            <h2>
+                <span id="player-score"> Computer - 0 </span>
+                <!-- <span id="computer-move"> -- name of the icon</span> -->
+            </h2>
+            <div class="container-of-player-icons computer">
+                <i class="fa fa-hand-rock-o" id="rock" aria-hidden="true"></i>
+                <i class="fa fa-hand-paper-o" id="paper" aria-hidden="true"></i>
+                <i class="fa fa-hand-scissors-o" id="scissors" aria-hidden="true"></i>
+                <i class="far fa-hand-lizard" id="lizard"></i>
+                <i class="far fa-hand-spock" id="spock"></i>
+            </div>
+        </section>
+        <div class="reset-button">
+            <i class="fas fa-sync-alt reset-icon"></i>
+        </div>
+        <div class="result">
+            <h3>dfgnhmn,</h3>
+        </div>
+    </main>
+
+</body>
+<script src="./script.js">
+</script>
+
 </html>
