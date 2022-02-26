@@ -169,7 +169,6 @@ h1 {
 
 #computer-move {
     color: #E83E33;
-    ;
 }
 
 .container-of-player-icons {
@@ -216,4 +215,8 @@ h1 {
     font-size: 2rem;
     font-weight: bold;
     text-align: center;
+}
+
+.selected {
+    color: black;
 }
