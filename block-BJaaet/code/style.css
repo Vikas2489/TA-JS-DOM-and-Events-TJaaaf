@@ -168,3 +168,12 @@ h1 {
     font-size: 2rem;
     color: cornflowerblue;
 }
+
+li {
+    margin: 1.7rem 0;
+    font-size: 1.8rem;
+}
+
+.display-none {
+    display: none;
+}
