@@ -10,7 +10,6 @@ function displayError(name) {
 
 function displaySuccess(name) {
     form.elements[name].nextElementSibling.innerText = "";
-
     errorMessage.username = "";
     errorMessage.name = "";
     errorMessage.email = "";
@@ -30,18 +29,8 @@ function handleSubmit(event) {
     let phone = elements.phone.value;
     let password = elements.passwordd.value;
     let passwordCheck = elements["password-check"].value;
-    // Rules for form validation:
 
-    // Password and confirm password must be same.
-    if (password !== passwordCheck) {
-        errorMessage.passwordd = "Password and confirm password must be same.";
-        errorMessage.passwordCheck = "Password and confirm password must be same.";
-        displayError("passwordd");
-        displaySuccess("password-check");
-    } else {
-        displaySuccess("passwordd");
-        displaySuccess("passsword-check");
-    }
+    // Rules for form validation:
 
     // Username can't be less than 4 characters
     if (username.length < 4) {
@@ -84,16 +73,17 @@ function handleSubmit(event) {
         displaySuccess("phone");
     }
 
-
     // Password and confirm password must be same.
-
-
-
-
+    if (password !== passwordCheck) {
+        errorMessage.passwordd = "Password and confirm password must be same.";
+        errorMessage.passwordCheck = "Password and confirm password must be same.";
+        displayError("passwordd");
+        displaySuccess("password-check");
+    } else {
+        displaySuccess("passwordd");
+        displaySuccess("passsword-check");
+    }
 }
-
-
-
 
 form.addEventListener("submit", handleSubmit);
 
