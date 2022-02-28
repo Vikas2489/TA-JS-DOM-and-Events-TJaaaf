@@ -15,20 +15,32 @@ function removeMovie(event) {
 }
 
 
+
 function handleInput(event) {
     event.preventDefault();
-    // form.elements["movie-name"].value;
-    let li = document.createElement("li");
-    li.innerText = `${form.elements["movie-name"].value}`;
+    // console.dir(form.elements["movie-name"]);
+    if (form.elements["movie-name"].value === "") {
+        ul.innerHTML = "";
+    } else {
+        let li = document.createElement("li");
 
-    let span = document.createElement("span");
-    span.innerText = '❎';
-    li.append(span);
-    ul.append(li);
+        label = document.createElement("label");
+        label.setAttribute("for", "label");
+        label.innerText = `${form.elements["movie-name"].value}`;
+        li.append(label);
 
-    span.addEventListener("click", removeMovie);
+        let input1 = document.createElement("input");
+        input1.setAttribute("type", "checkbox");
+        input1.setAttribute("id", "label");
+        li.prepend(input1);
+
+        let span = document.createElement("span");
+        span.innerText = '❎';
+        li.append(span);
+        ul.append(li);
+
+        span.addEventListener("click", removeMovie);
+    }
 }
-
-
 
 form.addEventListener("submit", handleInput);
