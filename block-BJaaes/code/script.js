@@ -178,80 +178,77 @@ form.addEventListener("submit", handleSubmit);
 
 // Mine way of solving
 
-// let form = document.querySelector("form");
-// let small = document.querySelectorAll("small");
+let form = document.querySelector("form");
+let small = document.querySelectorAll("small");
 
 
 
-// let userError = "";
+let userError = "";
 
-// let userInfo = {};
 
-// function handleClick(event) {
-//     event.preventDefault();
-//     let elementtt = event.target.elements;
+function handleClick(event) {
+    event.preventDefault();
+    let elementtt = event.target.elements;
 
-//     // Your Name
+    // Your Name
 
-//     let fullName = elementtt.name.value;
-//     if (fullName.split("").some((p) => Number(p)) === true) {
-//         userError = `You can't use number in the name field`;
-//         small[0].innerText = userError;
-//     } else {
-//         userInfo.fullName = fullName;
-//     }
+    let fullName = elementtt.name.value;
+    if (fullName.split("").some((p) => Number(p)) === true) {
+        userError = `You can't use number in the name field`;
+        small[0].innerText = userError;
+    } else {
+           small[0].innerText = "";
+    }
 
-//     // userName
+    // userName
 
-//     let userName = elementtt.username.value;
-//     if (userName.split("").length < 4) {
-//         userError = `Username can't be less than 4 characters`;
-//         small[3].innerText = userError;
-//     } else {
-//         small[3].innerText = "";
-//     }
+    let userName = elementtt.username.value;
+    if (userName.split("").length < 4) {
+        userError = `Username can't be less than 4 characters`;
+        small[3].innerText = userError;
+    } else {
+        small[3].innerText = "";
+    }
 
-//     // email
+    // email
 
-//     let email = elementtt.email.value;
-//     if (email.split("").some((p) => p === "@") === false) {
-//         userError = 'Email must contain the symbol @, (Not a valid email)';
-//         small[1].innerText = userError;
-//     } else if (email.split("").length < 6) {
-//         small[1].innerText = "Email must be at least 6 characters, (Not a valid email)";
-//     } else {
-//         userInfo.email = email;
-//     }
+    let email = elementtt.email.value;
+    if (email.split("").some((p) => p === "@") === false) {
+        userError = 'Email must contain the symbol @, (Not a valid email)';
+        small[1].innerText = userError;
+    } else if (email.split("").length < 6) {
+        small[1].innerText = "Email must be at least 6 characters, (Not a valid email)";
+    } else {
+        small[1].innerText = "";
+    }
 
-//     // phone number
+    // phone number
 
-//     let phone = elementtt.phone.value;
-//     if (phone.split("").length < 7) {
-//         small[2].innerText = `Length of phone number can't be less than 7`
-//     } 
-//     //  else if (phone.split("").some((p) => (Number(p)))) {
-//     //     small[2].innerText = `Phone numbers can only be a number`;
-//     // }
+    let phone = elementtt.phone.value;
+    if (phone.split("").length < 7) {
+        small[2].innerText = `Length of phone number can't be less than 7`
+    }  else {
+    small[2].innerText = "";
+    }
+    //  else if (phone.split("").some((p) => (Number(p)))) {
+    //     small[2].innerText = `Phone numbers can only be a number`;
+    // }
 
-//     // password
+    // password
 
-//     let password1 = elementtt.password[0].value;
-//     let password2 = elementtt.password[1].value;
+    let password1 = elementtt.password[0].value;
+    let password2 = elementtt.password[1].value;
 
-//     console.log({ password1, password2 });
-//     if (password1 !== password2) {
-//         small[5].textContent = 'Password and confirm password must be same.'
-//         console.log("abc"); 
-//     } else {
-//         userInfo.password = password2;
-//     }
+    console.log({ password1, password2 });
+    if (password1 !== password2) {
+        small[5].textContent = 'Password and confirm password must be same.'
+        console.log("abc"); 
+    } else {
+        small[5].innerText = "";
+    }
 
-//     if (small[5].innerText = "") {
-//         return alert('User Added Successfully!')
-//     }
-
-// }
+}
 
 
 
-// form.addEventListener("submit", handleClick);
+form.addEventListener("submit", handleClick);
