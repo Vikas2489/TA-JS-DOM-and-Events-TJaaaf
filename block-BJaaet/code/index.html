@@ -1,11 +1,28 @@
+<!-- Create a watch list app that will have an input box
+When you type something and press enter it should be added as a list below input
+Each movie name will have a cross button (to delete the movie)
+When you click on the cross the movie name should be deleted -->
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/ac3d1d3a66.js" crossorigin="anonymous"></script>
     <title>Movie Watch List</title>
-  </head>
-  <body>
+</head>
+
+<body>
+    <div class="container-of-watch-list">
+        <h1>Movie Watch List </h1>
+        <input type="text" name="movie-name" class="enter_movie" placeholder="Enter the movie name!">
+        <ol>
+            <li>Fukrey <span><i class="fas fa-times"></i></span></li>
+        </ol>
+    </div>
     <script src="./script.js"></script>
-  </body>
+</body>
+
 </html>
