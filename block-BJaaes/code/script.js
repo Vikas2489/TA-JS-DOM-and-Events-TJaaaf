@@ -30,7 +30,7 @@ function handleSubmit(event) {
     let password = elements.passwordd.value;
     let passwordCheck = elements["password-check"].value;
 
-    // Rules for form validation:
+    // Rules for form validation: 
 
     // Username can't be less than 4 characters
     if (username.length < 4) {
@@ -78,7 +78,7 @@ function handleSubmit(event) {
         errorMessage.passwordd = "Password and confirm password must be same.";
         errorMessage.passwordCheck = "Password and confirm password must be same.";
         displayError("passwordd");
-        displaySuccess("password-check");
+        displayError("password-check");
     } else {
         displaySuccess("passwordd");
         displaySuccess("passsword-check");
