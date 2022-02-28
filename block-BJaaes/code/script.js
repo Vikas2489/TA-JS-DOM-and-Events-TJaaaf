@@ -1,3 +1,5 @@
+// Ankit Sir way of solving
+
 let form = document.querySelector("form");
 let errorMessage = {};
 
@@ -9,6 +11,8 @@ function displayError(name) {
 }
 
 function displaySuccess(name) {
+    console.log(name);
+    console.log(form.elements[name], form.elements[name].nextElementSibling);
     form.elements[name].nextElementSibling.innerText = "";
     errorMessage.username = "";
     errorMessage.name = "";
@@ -172,7 +176,7 @@ form.addEventListener("submit", handleSubmit);
 
 
 
-
+// Mine way of solving
 
 // let form = document.querySelector("form");
 // let small = document.querySelectorAll("small");
@@ -224,7 +228,7 @@ form.addEventListener("submit", handleSubmit);
 //     let phone = elementtt.phone.value;
 //     if (phone.split("").length < 7) {
 //         small[2].innerText = `Length of phone number can't be less than 7`
-//     }
+//     } 
 //     //  else if (phone.split("").some((p) => (Number(p)))) {
 //     //     small[2].innerText = `Phone numbers can only be a number`;
 //     // }
@@ -234,8 +238,10 @@ form.addEventListener("submit", handleSubmit);
 //     let password1 = elementtt.password[0].value;
 //     let password2 = elementtt.password[1].value;
 
+//     console.log({ password1, password2 });
 //     if (password1 !== password2) {
-//         small[5].innerText = 'Password and confirm password must be same.'
+//         small[5].textContent = 'Password and confirm password must be same.'
+//         console.log("abc"); 
 //     } else {
 //         userInfo.password = password2;
 //     }
