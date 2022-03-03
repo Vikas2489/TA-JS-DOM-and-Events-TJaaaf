@@ -211,3 +211,8 @@ li {
 label {
     font-size: 1.3rem;
 }
+
+.button-section .selected {
+    color: black;
+    background-color: rgb(180, 105, 105);
+}

@@ -74,11 +74,30 @@ createUI(allTodos, rootUl);
 
 // All Tasks -
 
+
+function selectButton(btn) {
+    button1.classList.remove("selected");
+    button2.classList.remove("selected");
+    button3.classList.remove("selected");
+    button4.classList.remove("selected");
+
+    if (btn === "button1") {
+        button1.classList.add("selected")
+    } else if (btn === "button2") {
+        button2.classList.add("selected")
+    } else if (btn === "button3") {
+        button3.classList.add("selected")
+    } else if (btn === "button4") {
+        button4.classList.add("selected")
+    }
+}
+
 input1.addEventListener("keyup", handleInput);
 
 let button1 = document.querySelector("#one");
 button1.addEventListener("click", function() {
-    createUI(allTodos, rootUl)
+    createUI(allTodos, rootUl);
+    selectButton("button1");
 });
 
 
@@ -87,18 +106,19 @@ button1.addEventListener("click", function() {
 let button2 = document.querySelector("#two");
 button2.addEventListener("click", getActiveTasks);
 
-let activeTasks = [];
 
 function getActiveTasks() {
-    activeTasks = [];
-    allTodos.forEach(function(elm) {
-        if (elm.isDone === false) {
-            activeTasks.push(elm);
-            createUI(activeTasks, rootUl);
-        } else {
-            rootUl.innerHTML = "";
+    selectButton("button2")
+
+    let notCompletedTasks = allTodos.filter(
+        function(todo) {
+            if (todo.isDone === false) {
+                return todo;
+            }
         }
-    })
+    )
+    console.log(notCompletedTasks);
+    createUI(notCompletedTasks, rootUl);
 }
 
 // Completed Tasks -
@@ -106,16 +126,16 @@ function getActiveTasks() {
 let button3 = document.querySelector("#three");
 button3.addEventListener("click", getCompletedTasks);
 
-let completedTasks = [];
+// let completedTasks = [];
 
 function getCompletedTasks() {
-    completedTasks = [];
-    allTodos.forEach(function(elm) {
-        if (elm.isDone === true) {
-            completedTasks.push(elm);
-            createUI(completedTasks, rootUl);
-        }
-    })
+    selectButton("button3")
+    let completedTasks = allTodos.filter((elm) => elm.isDone === true);
+    createUI(completedTasks, rootUl);
+    if (completedTasks === []) {
+        createUI(completedTasks, rootUl);
+    }
+
 }
 
 
@@ -126,8 +146,10 @@ button4.addEventListener("click", clearCompletedOnes);
 
 
 function clearCompletedOnes() {
+    selectButton("button4")
     allTodos = allTodos.filter(function(elm) {
         return elm.isDone === false
     })
-    createUI(allTodos, rootUl)
+    createUI(allTodos, rootUl);
+    localStorage.setItem("todo", JSON.stringify(allTodos));
 }
