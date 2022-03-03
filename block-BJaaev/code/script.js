@@ -6,7 +6,7 @@ let containerOfTodos = document.querySelector(".container-of-todos");
 let allTodos = JSON.parse(localStorage.getItem("todo")) || [];
 
 function handleInput(event) {
-    if (event.keyCode === 13) {
+    if (event.keyCode === 13 && event.target.value) {
         let todo = {
             name: event.target.value,
             isDone: false,
@@ -39,9 +39,7 @@ function deleteTodo() {
 
 
 function createUI(data, rootE) {
-
     rootE.innerHTML = "";
-
     data.forEach(function creatingList(elm, index) {
         let li = document.createElement('li');
 
@@ -92,6 +90,7 @@ button2.addEventListener("click", getActiveTasks);
 let activeTasks = [];
 
 function getActiveTasks() {
+    activeTasks = [];
     allTodos.forEach(function(elm) {
         if (elm.isDone === false) {
             activeTasks.push(elm);
@@ -110,6 +109,7 @@ button3.addEventListener("click", getCompletedTasks);
 let completedTasks = [];
 
 function getCompletedTasks() {
+    completedTasks = [];
     allTodos.forEach(function(elm) {
         if (elm.isDone === true) {
             completedTasks.push(elm);
@@ -121,6 +121,13 @@ function getCompletedTasks() {
 
 // clear tasks - 
 
-
 let button4 = document.querySelector("#four");
-// button4.addEventListener("click", clearCompletedOnes);
+button4.addEventListener("click", clearCompletedOnes);
+
+
+function clearCompletedOnes() {
+    allTodos = allTodos.filter(function(elm) {
+        return elm.isDone === false
+    })
+    createUI(allTodos, rootUl)
+}
