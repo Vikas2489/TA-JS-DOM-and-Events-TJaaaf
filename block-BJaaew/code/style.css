@@ -142,11 +142,11 @@ table {
 header {
     text-align: center;
     padding: 2rem;
-    background: #db3333;
+    background: linear-gradient(to left, #A655F9, #67CEF9);
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     margin-bottom: 1rem;
     color: white;
 }
@@ -180,10 +180,11 @@ header .search-bar {
     max-width: 1300px;
     width: 100%;
     margin: 0 auto;
-    padding: 1.4rem;
+    padding: 2rem;
+    padding-left: 9rem;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    /* justify-content: space-between; */
 }
 
 .card img {
@@ -193,9 +194,10 @@ header .search-bar {
 .card {
     text-align: center;
     width: 20rem;
-    background: #e49938;
+    background: #B8E0E8;
     padding: 1rem;
     border-radius: 0.4rem;
+    margin: 1.4rem;
 }
 
 .card a {
@@ -210,7 +212,19 @@ header .search-bar {
 
 .card p,
 h2 {
-    margin: 0.8rem 0;
+    margin: 0.99rem 0;
 }
 
-.card-one {}
+p {
+    line-height: 1.2;
+}
+
+h2 {
+    font-weight: bolder;
+    font-size: 1.2rem;
+}
+
+.display-flex .selected {
+    background: linear-gradient(to left, #E84471, #EA5635);
+    color: black;
+}

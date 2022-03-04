@@ -1,18 +1,16 @@
 let rootElmOfSearchPeople = document.querySelector(".display-flex");
 let rootElmOfPeopleCards = document.querySelector(".container-of-people");
 
-let allPeopleOfEachHouse = got.houses.map((elm) => (
-    (elm.people)
-))
-
-// let peopleImage = allPeopleOfEachHouse;
-// let peopleName = ;
-// let peopleDescription = ;
-// let wikiLink = ;
+let searchBar = document.querySelector(".search-bar");
 
 let allHousesName = got.houses.map((elm) => (
     (elm.name)
 ));
+
+let allPeople = got.houses.reduce((acc, cv) => {
+    acc = acc.concat(cv.people);
+    return acc;
+}, []);
 
 allHousesName.forEach((elm) => {
     let button = document.createElement("button")
@@ -23,43 +21,166 @@ allHousesName.forEach((elm) => {
     rootElmOfSearchPeople.append(button);
 })
 
-// <div class="card">
-//   <img src="e-of-thrones-tywin-lannister.jpg" alt="got people image">
-//   <h2>Eddard "Ned" Stark</h2>
-//   <p>lord of</p>
-//   <a href="www.google.com">Know More!</a>
-//   </div>
+function createUI(data = allPeople) {
+    rootElmOfPeopleCards.innerHTML = "";
+    data.forEach(function(elm) {
+        let div1 = document.createElement("div");
+        div1.className = "card";
+        let img = document.createElement("img");
+        img.src = elm.image;
+        img.alt = elm.name;
+
+        let h2 = document.createElement("h2");
+        h2.innerText = elm.name;
+
+        let p = document.createElement("p");
+        p.innerText = elm.description;
+
+        let a = document.createElement("a");
+        a.href = elm.wikiLink;
+        a.innerText = "Know More!";
+
+        div1.append(img, h2, p, a);
+
+        rootElmOfPeopleCards.append(div1);
+    })
+
+}
+
+createUI();
 
 
-allPeopleOfEachHouse[0].map((p) => (p.name))
-allPeopleOfEachHouse[1].map((p) => (p.name))
-allPeopleOfEachHouse[2].map((p) => (p.name))
-allPeopleOfEachHouse[3].map((p) => (p.name))
-allPeopleOfEachHouse[4].map((p) => (p.name))
-allPeopleOfEachHouse[5].map((p) => (p.name))
-allPeopleOfEachHouse[6].map((p) => (p.name))
-allPeopleOfEachHouse[7].map((p) => (p.name))
-allPeopleOfEachHouse[8].map((p) => (p.name))
-allPeopleOfEachHouse[9].map((p) => (p.name))
-allPeopleOfEachHouse[10].map((p) => (p.name))
+function handleSearch() {
+    let value = event.target.value;
+    let search = allPeople.filter(function(element) {
+        if (element.name.startsWith(`${value}`)) {
+            return element;
+        }
+    })
+    if (event.keyCode) {
+        createUI(search)
+    };
+}
+
+searchBar.addEventListener("keyup", handleSearch);
 
 
 
-function createUI(elm) {
-    let div1 = document.createElement("div");
-    div1.className = "card";
-    let img = document.createElement("img");
-    img.src = elm.image;
-    img.alt = elm.name;
+function handleButton() {
+    let houseName = event.target.className;
+    got.houses.filter(function(element) {
+        if (element.name === houseName) {
+            let people = element.people;
+            createUI(people);
+            updateButton(event.target.className);
+        }
+    })
+}
 
-    let h2 = document.createElement("h2");
-    h2.innerText = elm.name;
+rootElmOfSearchPeople.addEventListener("click", handleButton);
 
-    let p = document.createElement("p");
-    p.innerText = elm.description;
 
-    let a = document.createElement("a");
-    a.href = elm.wikiLink;
 
-    rootElmOfPeopleCards.append(div1, img, h2, p, a);
+
+// let root = Array.from(rootElmOfSearchPeople.children);
+
+// function updateButton(elm) {
+//     elm.classList.remove("selected");
+//     if (elm === "Starks") {
+//         Starks.classList.add("selected");
+//     }
+//     if (elm === "Lannisters") {
+//         Lannisters.classList.add("selected");
+//     }
+//     if (elm === "Baratheons") {
+//         Baratheons.classList.add("selected");
+//     }
+//     if (elm === "Targaryens") {
+//         Targaryens.classList.add("selected");
+//     }
+//     if (elm === "Greyjoys") {
+//         Greyjoys.classList.add("selected");
+//     }
+//     if (elm === "Tyrells") {
+//         Tyrells.classList.add("selected");
+//     }
+//     if (elm === "Tullys") {
+//         Tullys.classList.add("selected");
+//     }
+//     if (elm === "Redwyne") {
+//         Redwyne.classList.add("selected");
+//     }
+//     if (elm === "Freys") {
+//         Freys.classList.add("selected");
+//     }
+//     if (elm === "Arryns") {
+//         Arryns.classList.add("selected");
+//     }
+//     if (elm === "Dothrakis") {
+//         Dothrakis.classList.add("selected");
+//     }
+// }
+
+
+// root.forEach(updateButton());
+
+let Starks = document.querySelector(".Starks");
+let Lannisters = document.querySelector(".Lannisters");
+let Baratheons = document.querySelector(".Baratheons");
+let Targaryens = document.querySelector(".Targaryens");
+let Greyjoys = document.querySelector(".Greyjoys");
+let Tyrells = document.querySelector(".Tyrells");
+let Tullys = document.querySelector(".Tullys");
+let Redwyne = document.querySelector(".Redwyne");
+let Freys = document.querySelector(".Freys");
+let Arryns = document.querySelector(".Arryns");
+let Dothrakis = document.querySelector(".Dothrakis");
+
+function updateButton(btn) {
+    Starks.classList.remove("selected")
+    Lannisters.classList.remove("selected")
+    Baratheons.classList.remove("selected")
+    Targaryens.classList.remove("selected")
+    Greyjoys.classList.remove("selected")
+    Tyrells.classList.remove("selected")
+    Tullys.classList.remove("selected")
+    Redwyne.classList.remove("selected")
+    Freys.classList.remove("selected")
+    Arryns.classList.remove("selected")
+    Dothrakis.classList.remove("selected")
+
+    if (btn === Starks.className) {
+        Starks.classList.add("selected");
+    }
+    if (btn === Lannisters.className) {
+        Lannisters.classList.add("selected");
+    }
+    if (btn === Baratheons.className) {
+        Baratheons.classList.add("selected");
+    }
+    if (btn === Targaryens.className) {
+        Targaryens.classList.add("selected");
+    }
+    if (btn === Greyjoys.className) {
+        Greyjoys.classList.add("selected");
+    }
+    if (btn === Tyrells.className) {
+        Tyrells.classList.add("selected");
+    }
+    if (btn === Tullys.className) {
+        Tullys.classList.add("selected");
+    }
+    if (btn === Redwyne.className) {
+        Redwyne.classList.add("selected");
+    }
+    if (btn === Freys.className) {
+        Freys.classList.add("selected");
+    }
+    if (btn === Arryns.className) {
+        Arryns.classList.add("selected");
+    }
+    if (btn === Dothrakis.className) {
+        Dothrakis.classList.add("selected");
+    }
+
 }
