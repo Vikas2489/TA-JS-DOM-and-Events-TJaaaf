@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>TODO Application</title>
     <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <script src="./script.js"></script>
-  </body>
+    <script src="https://kit.fontawesome.com/ac3d1d3a66.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <h1>todos</h1>
+    </header>
+    <main class="container-of-todos">
+        <div>
+            <input class="input" type="text" placeholder="What needs to be done?" name="text">
+        </div>
+        <ul class="todos">
+        </ul>
+        <div class="button-section">
+            <button type="button" id="one">All</button>
+            <button type="button" id="two">Active</button>
+            <button type="button" id="three">Completed</button>
+            <div>
+                <button class="clear" id="four" type="button">Clear Completed</button>
+            </div>
+
+        </div>
+    </main>
+
+
+</body>
+<script src="./script.js"></script>
+
 </html>
