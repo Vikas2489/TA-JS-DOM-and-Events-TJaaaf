@@ -1,6 +1,7 @@
 const section = document.querySelector("section");
 const playerLivesCount = document.querySelector("span");
 let playerLives = 6;
+let moves = 0;
 
 
 playerLivesCount.textContent = playerLives;
@@ -64,7 +65,11 @@ const cardGenrator = () => {
 const checkCards = (event) => {
     event.target.parentElement.classList.add("flipped");
     let flippedCards = document.querySelectorAll(".flipped");
+    let toggleCards = document.querySelectorAll(".toggleCard");
+    console.log(toggleCards);
     if (flippedCards.length == 2) {
+        moves = ++moves;
+        console.log(moves);
         if (flippedCards[0].getAttribute("name") === flippedCards[1].getAttribute("name")) {
             console.log("match");
             flippedCards.forEach((item) => {
@@ -80,24 +85,34 @@ const checkCards = (event) => {
             playerLives--;
             playerLivesCount.textContent = playerLives;
             if (playerLives === 0) {
-                restart();
+                restart("You Loose 🥲🥲🥲");
             }
         }
     }
+    if (toggleCards.length === 16) {
+        restart("You Won 🤩🤩🤩");
+    }
 }
 
-const restart = () => {
+const restart = (text) => {
     let cardData = randomize();
     let allCards = document.querySelectorAll(".card");
     let allFaces = document.querySelectorAll(".face");
+    section.style.pointerEvents = "none";
     cardData.forEach((card, index) => {
         allCards[index].classList.remove("toggleCard");
-        allCards[index].style.pointerEvents = "all";
-        allFaces[index].src = card.imgSrc;
-        allCards[index].setAttribute("name", card.name);
+        setTimeout(() => {
+            allCards[index].style.pointerEvents = "all";
+            allFaces[index].src = card.imgSrc;
+            allCards[index].setAttribute("name", card.name);
+            section.style.pointerEvents = "all";
+
+        }, 1500)
+
     })
-    playerLives = 6
+    playerLives = 6;
     playerLivesCount.textContent = playerLives;
+    setTimeout(() => { alert(text) }, 1500);
 }
 
 cardGenrator();
