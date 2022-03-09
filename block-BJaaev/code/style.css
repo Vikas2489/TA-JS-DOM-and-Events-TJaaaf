@@ -1,0 +1,218 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/* body */
+
+body {
+    background-color: #F4F5F4;
+}
+
+div .input {
+    border-radius: 1.7rem;
+    padding: 1rem;
+    width: 94%;
+    border: 1px solid rgb(201, 139, 230);
+    font-size: 1.2rem;
+}
+
+.container-of-todos {
+    width: 28rem;
+    margin: 0 auto;
+    padding: 2rem;
+    /* padding-top: 0.5rem; */
+    background-color: white;
+    border-radius: 1rem;
+}
+
+h1 {
+    color: rgb(207, 174, 223);
+    text-align: center;
+    font-size: 5rem;
+    font-weight: 200;
+    padding-top: 1rem;
+}
+
+.destroy {
+    border: 0;
+    background-color: #FFFFFF;
+    font-size: 0.75rem;
+    text-align: right;
+    margin-left: 4rem;
+}
+
+li {
+    border-bottom: 1px dashed rgb(202, 151, 226);
+    padding: 0.8rem 0;
+}
+
+.check {
+    border-radius: 50%;
+    font-size: 1.5rem;
+    display: inline-block;
+    margin-right: 0.7rem;
+}
+
+.button-section {
+    /* text-align: center; */
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.button-section button {
+    background-color: rgb(208, 166, 228);
+    border-radius: 0.8rem;
+    border: 0;
+    color: white;
+    padding: 0.55rem;
+    margin-left: 0.5rem;
+}
+
+.button-section .clear {
+    text-align: right;
+}
+
+label {
+    font-size: 1.3rem;
+}
+
+.button-section .selected {
+    color: black;
+    background-color: rgb(180, 105, 105);
+}
